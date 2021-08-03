@@ -1,9 +1,10 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-
-Vue.config.productionTip = false
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import VueToastr from "vue-toastr";
+import "vue-step-progress/dist/main.css";
+Vue.config.productionTip = false;
 
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 
@@ -16,8 +17,15 @@ Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 
+Vue.use(VueToastr, {
+  defaultPosition: "toast-bottom-right",
+  defaultCloseOnHover: false,
+  defaultClassNames: ["animated", "zoomInUp"],
+  clickClose: true,
+});
+
 new Vue({
   router,
   store,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");
